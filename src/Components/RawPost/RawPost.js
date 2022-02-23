@@ -17,7 +17,7 @@ function RawPost() {
   }, [])
   
   return (<div className='row'>
-      <h2 className=''>Title</h2>
+      <h2 className=''>Netflix Originals</h2>
       <div className='posters'>
         {movies.map((obj)=>
         <img className='poster'  src={`${imageUrl+obj.backdrop_path}`} alt="Posters" />
