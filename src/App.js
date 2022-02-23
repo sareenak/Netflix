@@ -8,8 +8,8 @@ function App() {
   return(<div>
     <NavBar/>
     <Banner/>
-    <RawPost/>
-    <RawPost/>
+    <RawPost title="Netflix Originals"/>
+    <RawPost title="Action" isSmall/>
   </div>)
  
 }
