@@ -11,6 +11,7 @@
     overflow-x: scroll;
 }
 .poster{
+    cursor: pointer;
     max-height: 250px;
     margin-right: 10px;
 
@@ -19,6 +20,13 @@
     display: none;
 }
 .smallPoster{
+    cursor: pointer;
     max-height: 150px;
     margin-right: 10px;
+}
+.poster:hover{
+    transform: scale(1.2);
+}
+.smallPoster:hover{
+    transform: scale(1.1);
 }
