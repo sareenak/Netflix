@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react';
-import {api_Key} from '../../constants/constants'
+import React, { useEffect, useState } from 'react';
+import {api_Key,imageUrl} from '../../constants/constants'
 import axios from '../../axios';
 import './Banner.css'
 
 function Banner() {
+    const [movie, setMovie] = useState()
 useEffect(() => {
     axios.get(`trending/all/week?api_key=${api_Key}&language=en-US`).then((response)=>{
-        console.log(response.data)
+        console.log(response.data.results[0])
+        setMovie(response.data.results[2])
     })
   
 }, []);
 
   return (
-  <div className='banner'>
+      
+  <div  style={{backgroundImage:`url(${movie?imageUrl+movie.backdrop_path:""})`}} className='banner'>
       <div className='content'>
-          <h1 className='title'>Movie Name</h1>
+          <h1 className='title'>{movie ?movie.title:""}</h1>
           <div className='banner_buttons'>
               <button className='buttons'>Play</button>
               <button className='buttons'>My List</button>
@@ -22,7 +25,7 @@ useEffect(() => {
           </div>
           <div>
           <h1 className='description'>
-          In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual 
+         {movie?movie.overview:""} 
           </h1>
           </div>
           <div className='fade_bottom'>

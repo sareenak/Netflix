@@ -1,7 +1,19 @@
-import React from 'react';
+import  React ,{useState,useEffect} from 'react';
 import './RawPost.css'
+import {api_Key} from '../../constants/constants'
+import axios from '../../axios';
+
+
 
 function RawPost() {
+  useEffect(() => {
+    axios.get(`discover/tv?api_key=${api_Key}&with_networks=213`).then((response)=>{
+      console.log(response.data)
+    }).catch(err=>{
+      alert("Network error")
+    })
+  }, [])
+  
   return (<div className='row'>
       <h2 className=''>Title</h2>
       <div className='posters'>
